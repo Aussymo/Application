@@ -1,10 +1,15 @@
-
 import Table from "react-bootstrap/Table";
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
   
 const Read = () => {
   const [data, setData] = useState([]);
+
+  useEffect(() => {
+    Axios.get("https://application-app2022.herokuapp.com/api/get").then((response) => {
+      setData(response.data);
+    });
+  }, []);
 
   const deleteEmployee = (id) => {
     Axios.delete(`https://application-app2022.herokuapp.com/api/delete/${id}`);

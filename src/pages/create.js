@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Axios from "axios";
   
 const Create = () => {
@@ -7,13 +7,9 @@ const Create = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [data, setData] = useState([]);
+ 
 
-  useEffect(() => {
-    Axios.get("https://application-app2022.herokuapp.com/api/get").then((response) => {
-      setData(response.data);
-    });
-  }, []);
+  
   
   const submitEmployee = () => {
     Axios.post("https://application-app2022.herokuapp.com/api/insert", {
