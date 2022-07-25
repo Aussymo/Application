@@ -7,7 +7,7 @@ const Read = () => {
   const [data, setData] = useState([]);
 
   const deleteEmployee = (id) => {
-    Axios.delete(`https://application-app2022.herokuapp.com//api/delete/${id}`);
+    Axios.delete(`https://application-app2022.herokuapp.com/api/delete/${id}`);
   };
 
   

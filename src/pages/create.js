@@ -10,13 +10,13 @@ const Create = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    Axios.get("https://dev072220222.herokuapp.com/api/get").then((response) => {
+    Axios.get("https://application-app2022.herokuapp.com/api/get").then((response) => {
       setData(response.data);
     });
   }, []);
   
   const submitEmployee = () => {
-    Axios.post("https://application-app2022.herokuapp.com//api/insert", {
+    Axios.post("https://application-app2022.herokuapp.com/api/insert", {
       firstName: firstName,
       lastName: lastName,
       email: email,

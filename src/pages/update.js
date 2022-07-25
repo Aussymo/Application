@@ -13,7 +13,7 @@ const Update = () => {
 
   
   const updateData = (id) => {
-    Axios.put(`https://application-app2022.herokuapp.com//api/update/${id}`, {
+    Axios.put(`https://application-app2022.herokuapp.com/api/update/${id}`, {
       id: id,
       firstName: newData,
       lastName: newLast,
