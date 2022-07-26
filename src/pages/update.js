@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-  
+
 const Update = () => {
 
   const [data, setData] = useState([]);
@@ -11,7 +11,13 @@ const Update = () => {
   const [newEmail, setNewEmail] = useState("");
   const [newPhone, setNewPhone] = useState("");
 
-  
+  useEffect(() => {
+    Axios.get("https://application-app2022.herokuapp.com/api/get").then((response) => {
+      setData(response.data);
+    });
+  }, []);
+
+
   const updateData = (id) => {
     Axios.put(`https://application-app2022.herokuapp.com/api/update/${id}`, {
       id: id,
@@ -27,8 +33,8 @@ const Update = () => {
   };
 
   return (
-    <div className="form">
-    <Card className="cards">
+    <>
+      <Card className="cards">
         {data.map((value) => {
           {
             console.log(value);
@@ -80,6 +86,7 @@ const Update = () => {
                   }}
                 />
               </ListGroup.Item>
+
               <button
                 type="submit"
                 className="update"
@@ -92,9 +99,10 @@ const Update = () => {
             </ListGroup>
           );
         })}
+
       </Card>
-      </div>
+    </>
   );
 };
-  
+
 export default Update;
