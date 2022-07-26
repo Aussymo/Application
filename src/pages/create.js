@@ -50,7 +50,7 @@ const Create = () => {
           placeholder="Phone Number"
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
-        <button className="submit"
+        <button type="button" className="submit"
          onClick={submitEmployee}
          >
           Submit
